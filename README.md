@@ -1,6 +1,6 @@
 # Image Measurement Tool
 
-A Java Swing application that allows you to import an image and measure objects within it based on a known reference length. 
+A Java Swing application that allows you to import an image and measure objects within it based on a known reference length. Created to help mark up images for my Fluid Mechanics final project.
 
 ## Features
 
