@@ -3,8 +3,6 @@ package com.benliebkemann;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -124,35 +122,6 @@ public class Main extends JPanel implements MouseListener, MouseMotionListener {
             }
         }
 
-    }
-
-    @Override
-    public Dimension getPreferredSize() {
-        Container parent = getParent();
-
-        double targetAspectRatio = image.getWidth() * 1.0 / image.getHeight();
-
-        // Fallback for the initial load before the parent has a width/height on screen
-        if (parent == null || parent.getWidth() == 0 || parent.getHeight() == 0) {
-            return new Dimension(400, (int) (400 / targetAspectRatio));
-        }
-
-        int parentWidth = parent.getWidth();
-        int parentHeight = parent.getHeight();
-
-        // Start by assuming we will match the parent's full width,
-        // and calculate the required height to maintain the ratio.
-        int targetWidth = parentWidth;
-        int targetHeight = (int) (targetWidth / targetAspectRatio);
-
-        // If the calculated height is taller than what the parent allows,
-        // we must instead match the parent's full height and calculate the width.
-        if (targetHeight > parentHeight) {
-            targetHeight = parentHeight;
-            targetWidth = (int) (targetHeight * targetAspectRatio);
-        }
-
-        return new Dimension(targetWidth, targetHeight);
     }
 
     public void reset(JFrame frame) {
